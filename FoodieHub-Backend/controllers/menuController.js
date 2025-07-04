@@ -1,5 +1,14 @@
 // controllers/menuController.js
 const MenuItem = require('../models/MenuItem');
+// Get all menu items (public)
+exports.getAllMenuItems = async (req, res) => {
+  try {
+    const items = await MenuItem.find().populate('restaurant', 'name');
+    res.json(items);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
 
 // Add menu item (restaurant only)
 exports.addMenuItem = async (req, res) => {
