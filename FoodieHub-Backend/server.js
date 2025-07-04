@@ -1,4 +1,4 @@
-// server.js
+
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -25,7 +25,6 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/menu', menuRoutes);
@@ -39,7 +38,6 @@ app.use('/api/meal-planner', mealPlannerRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/events', eventRoutes); // ✅ NEW
 
-// Root
 app.get('/', (req, res) => {
   res.send('Welcome to FoodieHub API!');
 });
